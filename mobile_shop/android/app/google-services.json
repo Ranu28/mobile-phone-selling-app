@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "258087677976",
+    "project_id": "mobile-shop-1dcc8",
+    "storage_bucket": "mobile-shop-1dcc8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258087677976:android:ed33ef206526b14571d36d",
+        "android_client_info": {
+          "package_name": "com.ranuacedemy.mobile_shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "258087677976-eh8p3tjgeapmbjp0iut0p6qr1pk22bai.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcRZj7r3GFh0_aoqrWTd4uRAvoGwbzsaQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "258087677976-eh8p3tjgeapmbjp0iut0p6qr1pk22bai.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
