@@ -14,7 +14,19 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppbar(),
-      body: HomeBody(),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 20),
+        child: HomeBody(),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            ListTile(
+              title: Text("Home"),
+            )
+          ],
+        ),
+      ),
     );
   }
 
@@ -26,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
         "Mobile Shop",
         style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.amber,
       shadowColor: Colors.white,
     );
   }

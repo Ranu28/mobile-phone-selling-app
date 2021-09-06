@@ -16,18 +16,27 @@ class FavotiteButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<ProductProvider>(builder: (context, value, child) {
       return InkWell(
-        onTap: () {},
+        onTap: () {
+          value.setIsFav(value.singleProdunt.id);
+        },
         child: Container(
           alignment: Alignment.center,
           height: size.width / 15,
           width: size.width / 15,
-          decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.red),
+          decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color:
+                  value.singleProdunt.isFavorite ? Colors.white : Colors.red),
           child: SvgPicture.asset(
             '${Constants.Icon_PATH}heart.svg',
-            color: Colors.white,
+            color: value.singleProdunt.isFavorite ? Colors.red : Colors.white,
             fit: BoxFit.fill,
-            height: size.width / 30,
-            width: size.width / 30,
+            height: value.singleProdunt.isFavorite
+                ? size.width / 15
+                : size.width / 30,
+            width: value.singleProdunt.isFavorite
+                ? size.width / 15
+                : size.width / 30,
           ),
         ),
       );

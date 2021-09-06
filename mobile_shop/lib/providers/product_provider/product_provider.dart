@@ -4,9 +4,10 @@ import 'package:mobile_shop/model/phone_model.dart';
 
 class ProductProvider extends ChangeNotifier {
   late PhoneModel _phoneModel;
-
+  int _amount = 1;
 //  getter
   PhoneModel get singleProdunt => _phoneModel;
+  int get amount => _amount;
 
   List<PhoneModel> _phoneList = [
     PhoneModel(
@@ -72,23 +73,36 @@ class ProductProvider extends ChangeNotifier {
   // PhoneModel setPhoneModel(int index) {
   //   return _phoneList[index];
   // }
-  void setIsFav(int index) {
-    _phoneList[index].isFavorite = !_phoneList[index].isFavorite;
 
+  // void setIsFav(int index) {
+  //   _phoneList[index].isFavorite = !_phoneList[index].isFavorite;
+
+  //   notifyListeners();
+  // }
+  //
+  //
+  void setIsFav(int productId) {
+    int temp = _phoneList.indexWhere((element) => element.id == productId);
+    _phoneList[temp].isFavorite = !_phoneList[temp].isFavorite;
     notifyListeners();
     // Logger().i(_phoneList[index].isFavorite);
   }
-  // void setIsFav(int productId) {
-  //   // _phoneList[index].isFavorite = !_phoneList[index].isFavorite;
-  //   int temp = _phoneList.indexWhere((element) => element.id == productId);
-  //   Logger().i(temp);
-  //   notifyListeners();
-  //   // Logger().i(_phoneList[index].isFavorite);
-  // }
 
-  void setSingleProduct(PhoneModel honeModel) {
-    _phoneModel = honeModel;
+  //set single phone model
+  void setSingleProduct(PhoneModel phoneModel) {
+    _phoneModel = phoneModel;
     notifyListeners();
-    Logger().i(_phoneModel.name);
+  }
+
+  //cart counter
+  void increaseAmount() {
+    _amount++;
+    notifyListeners();
+  }
+
+  void decreaseAmount() {
+    _amount != 1 ? _amount-- : _amount = 1;
+
+    notifyListeners();
   }
 }

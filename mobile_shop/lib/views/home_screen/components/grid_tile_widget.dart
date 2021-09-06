@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 import 'package:mobile_shop/model/phone_model.dart';
 import 'package:mobile_shop/providers/product_provider/product_provider.dart';
 import 'package:mobile_shop/utils/constants.dart';
@@ -28,7 +29,7 @@ class GridTileWidget extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) => DetailsScreen(
-                        phoneModel: phoneModel,
+                      // phoneModel: phoneModel,
                       )));
         },
         child: Container(
@@ -40,39 +41,45 @@ class GridTileWidget extends StatelessWidget {
               color: phoneModel.color, borderRadius: BorderRadius.circular(25)),
         ),
       ),
-      footer: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text(
-          '${phoneModel.name}',
-          style: TextStyle(color: Colors.grey),
-        ),
-        Padding(
-          padding:
-              const EdgeInsets.only(top: 10, bottom: 30, left: 15, right: 5),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Rs ${phoneModel.price}',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              Consumer<ProductProvider>(builder: (context, value, child) {
-                return IconButton(
-                  onPressed: () {
-                    // value.setIsFav(phoneModel.id);
-                    value.setIsFav(index);
-                  },
-                  icon: Icon(
-                    phoneModel.isFavorite
-                        ? Icons.favorite
-                        : Icons.favorite_border_outlined,
-                    color: Colors.red,
-                  ),
-                );
-              })
-            ],
+      footer: Container(
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Text(
+              '${phoneModel.name}',
+              style: TextStyle(color: Colors.black),
+            ),
           ),
-        )
-      ]),
+          Padding(
+            padding:
+                const EdgeInsets.only(top: 10, bottom: 30, left: 15, right: 5),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Rs ${phoneModel.price}  ${phoneModel.id}',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Consumer<ProductProvider>(builder: (context, value, child) {
+                  return IconButton(
+                    onPressed: () {
+                      value.setIsFav(phoneModel.id);
+
+                      // value.setIsFav(index);
+                    },
+                    icon: Icon(
+                      phoneModel.isFavorite
+                          ? Icons.favorite
+                          : Icons.favorite_border_outlined,
+                      color: Colors.red,
+                    ),
+                  );
+                })
+              ],
+            ),
+          )
+        ]),
+      ),
       child: Container(
         color: Colors.transparent,
       ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_shop/providers/product_provider/product_provider.dart';
 import 'package:mobile_shop/views/details_sceen/details_body_bottom.dart';
+import 'package:provider/provider.dart';
 
 class Descrpition extends StatelessWidget {
   const Descrpition({
@@ -13,14 +15,18 @@ class Descrpition extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: size.height / 9,
-      margin: EdgeInsets.only(
-        top: size.height / 25,
-      ),
-      child: SingleChildScrollView(
-        child: Text("${widget.phoneModel.description}"),
-      ),
+    return Consumer<ProductProvider>(
+      builder: (context, value, child) {
+        return Container(
+          height: size.height / 9,
+          margin: EdgeInsets.only(
+            top: size.height / 25,
+          ),
+          child: SingleChildScrollView(
+            child: Text("${value.singleProdunt.description}"),
+          ),
+        );
+      },
     );
   }
 }
