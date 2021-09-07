@@ -53,7 +53,7 @@ class _DetailsBodyBottomState extends State<DetailsBodyBottom> {
                                 });
                               },
                               child: ColorDot(
-                                color: value.singleProdunt.color,
+                                color: value.singleProdunt.color!,
                                 isSelected: c1,
                               ),
                             ),
@@ -66,7 +66,7 @@ class _DetailsBodyBottomState extends State<DetailsBodyBottom> {
                                 });
                               },
                               child: ColorDot(
-                                color: value.singleProdunt.color1,
+                                color: value.singleProdunt.color1!,
                                 isSelected: c2,
                               ),
                             ),
@@ -79,7 +79,7 @@ class _DetailsBodyBottomState extends State<DetailsBodyBottom> {
                                 });
                               },
                               child: ColorDot(
-                                color: value.singleProdunt.color2,
+                                color: value.singleProdunt.color2!,
                                 isSelected: c3,
                               ),
                             ),
@@ -120,7 +120,7 @@ class _DetailsBodyBottomState extends State<DetailsBodyBottom> {
                     Container(
                       width: size.width / 7,
                       decoration: BoxDecoration(
-                          border: Border.all(color: value.singleProdunt.color),
+                          border: Border.all(color: value.singleProdunt.color!),
                           borderRadius: BorderRadius.circular(15)),
                       child: IconButton(
                         onPressed: () {},

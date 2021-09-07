@@ -5,9 +5,13 @@ import 'package:mobile_shop/model/phone_model.dart';
 class ProductProvider extends ChangeNotifier {
   late PhoneModel _phoneModel;
   int _amount = 1;
+
 //  getter
   PhoneModel get singleProdunt => _phoneModel;
   int get amount => _amount;
+  List<PhoneModel> get getFavoitetems {
+    return _phoneList.where((element) => element.isFavorite!).toList();
+  }
 
   List<PhoneModel> _phoneList = [
     PhoneModel(
@@ -83,7 +87,7 @@ class ProductProvider extends ChangeNotifier {
   //
   void setIsFav(int productId) {
     int temp = _phoneList.indexWhere((element) => element.id == productId);
-    _phoneList[temp].isFavorite = !_phoneList[temp].isFavorite;
+    _phoneList[temp].isFavorite = !_phoneList[temp].isFavorite!;
     notifyListeners();
     // Logger().i(_phoneList[index].isFavorite);
   }
@@ -91,6 +95,8 @@ class ProductProvider extends ChangeNotifier {
   //set single phone model
   void setSingleProduct(PhoneModel phoneModel) {
     _phoneModel = phoneModel;
+    // print(_phoneModel.toMap());
+    Logger().i(_phoneModel.toMap());
     notifyListeners();
   }
 

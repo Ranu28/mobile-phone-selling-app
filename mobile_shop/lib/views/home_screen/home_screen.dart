@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_shop/views/Drawer/drawer.dart';
 
 import 'components/home_body.dart';
 
@@ -18,15 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.only(top: 20),
         child: HomeBody(),
       ),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            ListTile(
-              title: Text("Home"),
-            )
-          ],
-        ),
-      ),
+      drawer: DrawerWidget(),
     );
   }
 

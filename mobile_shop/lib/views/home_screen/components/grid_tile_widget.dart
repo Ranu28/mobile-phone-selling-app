@@ -63,12 +63,12 @@ class GridTileWidget extends StatelessWidget {
                 Consumer<ProductProvider>(builder: (context, value, child) {
                   return IconButton(
                     onPressed: () {
-                      value.setIsFav(phoneModel.id);
+                      value.setIsFav(phoneModel.id!);
 
                       // value.setIsFav(index);
                     },
                     icon: Icon(
-                      phoneModel.isFavorite
+                      phoneModel.isFavorite!
                           ? Icons.favorite
                           : Icons.favorite_border_outlined,
                       color: Colors.red,
